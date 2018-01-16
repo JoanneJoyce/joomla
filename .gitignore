@@ -1,0 +1,9 @@
+.vscode/*
+administrator/cache/*
+cache/*
+logs/*
+tmp/*
+.htaccess
+configuration.php
+robots.txt
+web.config.txt

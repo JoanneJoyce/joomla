@@ -1,0 +1,114 @@
+.formButton {
+    background: -webkit-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
+    background: -o-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
+    background: -ms-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
+    background: -moz-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
+    background: linear-gradient(to bottom, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
+    background-color: #ffffff;
+    border-top: 1px solid #cccccc;
+    border-right: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    border-left: 1px solid #cccccc;
+    font-size: 13px;
+    height: 25px;
+    padding: 1px 6px;
+}
+
+.input-group {
+    margin-bottom: 0px;
+}
+
+.login-button {
+    text-align: right;
+}
+
+.mpw-block-body {
+    background-color: #e0e9f9;
+    border-left: 1px solid #466bb0;
+    border-right: 1px solid #466bb0;
+    font: bold 12px 'ＭＳ Ｐゴシック';
+}
+
+.mpw-block-head {
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.99) 0%, rgba(221, 228, 241, 0.99) 63%, rgba(139, 162, 205, 0.99) 88%, rgba(93, 125, 186, 0.99) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0.99) 0%, rgba(221, 228, 241, 0.99) 63%, rgba(139, 162, 205, 0.99) 88%, rgba(93, 125, 186, 0.99) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0.99) 0%, rgba(221, 228, 241, 0.99) 63%, rgba(139, 162, 205, 0.99) 88%, rgba(93, 125, 186, 0.99) 100%);
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0.99) 0%, rgba(221, 228, 241, 0.99) 63%, rgba(139, 162, 205, 0.99) 88%, rgba(93, 125, 186, 0.99) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.99) 0%, rgba(221, 228, 241, 0.99) 0%, rgba(139, 162, 205, 0.99) 88%, rgba(93, 125, 186, 0.99) 100%);
+    border-top-left-radius: 20px 20px;
+    border-top-right-radius: 20px 20px;
+    font-size: 0px;
+    height: 9px;
+}
+
+.mpw-block-title {
+    font: bold 12px "ＭＳ Ｐゴシック";
+    padding: 0 0 3px 16px;
+    background-color: #466bb0;
+    border: 1px solid #466bb0;
+    color: #ffffff;
+}
+
+.mpw-login-field {
+    height: 30px;
+}
+
+.separator {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.lost-pass {
+    text-align: center;
+}
+
+.lost-pass > a {
+    color: #184890;
+}
+
+.mpw-block-footer {
+    background-color: #466bb0;
+    border-bottom-left-radius: 20px 20px;
+    border-bottom-right-radius: 20px 20px;
+    font-size: 0px;
+    height: 10px;
+}
+
+.block {
+    margin-bottom: 5px;
+}
+
+#mpw-footer {
+    background: -webkit-linear-gradient(top, rgb(165, 183, 217) 0%, rgb(107, 136, 192) 19%, rgb(70, 107, 176) 97%, rgb(70, 107, 176) 100%);
+    background: -o-linear-gradient(top, rgb(165, 183, 217) 0%, rgb(107, 136, 192) 19%, rgb(70, 107, 176) 97%, rgb(70, 107, 176) 100%);
+    background: -ms-linear-gradient(top, rgb(165, 183, 217) 0%, rgb(107, 136, 192) 19%, rgb(70, 107, 176) 97%, rgb(70, 107, 176) 100%);
+    background: -moz-linear-gradient(top, rgb(165, 183, 217) 0%, rgb(107, 136, 192) 19%, rgb(70, 107, 176) 97%, rgb(70, 107, 176) 100%);
+    background: linear-gradient(to bottom, rgb(165, 183, 217) 0%, rgb(107, 136, 192) 19%, rgb(70, 107, 176) 97%, rgb(70, 107, 176) 100%);
+    border-top: 1px solid #184890;
+    border-bottom: 1px solid #184890;
+    clear: both;
+    margin-bottom: 8px;
+    margin-top: 8px;
+    padding: 1px 0;
+    text-align: center;
+}
+
+#mpw-header {
+    background: url(../img/logo.jpg) no-repeat left top;
+    background-color: #466bb0;
+    height: 70px;
+    margin-bottom: 8px;
+    text-align: right;
+    width: 100%;
+}
+
+#mpw-prompt {
+    color: #f0f069;
+    font-size: 11px;
+    padding: 14px;
+}
+
+#mpw-prompt > span {
+    cursor: pointer;
+    text-decoration: underline;
+}
