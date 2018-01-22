@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "https://www.joomla.org/xml/dtd/2.5/template-install.dtd">
-<extension version="3.1" type="template" client="site">
+<extension version="3.8" type="template">
     <name>medical partner</name>
     <version>1.0</version>
     <creationDate>5/11/2018</creationDate>
@@ -9,16 +9,13 @@
     <copyright>Copyright (C) 2018 NIHON INTER SYSTEMS Co., Ltd. All rights reserved</copyright>
     <description>TPL_MEDICAL_PARTNER_XML_DESCRIPTION</description>
     <files>
-        <filename>component.php</filename>
-        <filename>error.php</filename>
         <filename>favicon.ico</filename>
         <filename>index.php</filename>
-        <filename>offline.php</filename>
         <filename>templateDetails.xml</filename>
+        <filename>template_thumbnail.png</filename>
         <folder>css</folder>
         <folder>html</folder>
         <folder>images</folder>
-        <folder>img</folder>
         <folder>js</folder>
         <folder>language</folder>
     </files>
@@ -35,8 +32,8 @@
     <languages folder="language">
         <language tag="en-GB">en-GB/en-GB.tpl_medicalpartner.ini</language>
         <language tag="en-GB">en-GB/en-GB.tpl_medicalpartner.sys.ini</language>
-        <language tag="jp-GB">ja-JP/ja-JP.tpl_medicalpartner.ini</language>
-        <language tag="jp-GB">ja-JP/ja-JP.tpl_medicalpartner.sys.ini</language>
+        <language tag="ja-JP">ja-JP/ja-JP.tpl_medicalpartner.ini</language>
+        <language tag="ja-JP">ja-JP/ja-JP.tpl_medicalpartner.sys.ini</language>
     </languages>
     <config>
         <fields name="params">

@@ -1,3 +1,8 @@
+﻿.block {
+    margin-bottom: 5px;
+    min-width: 160px;
+}
+
 .formButton {
     background: -webkit-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
     background: -o-linear-gradient(top, rgb(248, 248, 248) 0%, rgb(233, 233, 233) 74%);
@@ -22,11 +27,43 @@
     text-align: right;
 }
 
+.lost-pass {
+    text-align: center;
+}
+
+.lost-pass > a,
+.lost-pass > a:hover {
+    color: #184890;
+}
+
 .mpw-block-body {
     background-color: #e0e9f9;
     border-left: 1px solid #466bb0;
     border-right: 1px solid #466bb0;
-    font: bold 12px 'ＭＳ Ｐゴシック';
+    font: normal 12px 'ＭＳ Ｐゴシック';
+}
+
+.mpw-block-body > ul > li {
+    width: 100%;
+}
+
+.mpw-block-body > ul > li > a {
+    color: #303098;
+    text-decoration: none;
+}
+
+.mpw-block-body > ul > .active > a {
+    background-color: #fff;
+    color: #303098;
+}
+
+
+.mpw-block-footer {
+    background-color: #466bb0;
+    border-bottom-left-radius: 20px 20px;
+    border-bottom-right-radius: 20px 20px;
+    font-size: 0px;
+    height: 10px;
 }
 
 .mpw-block-head {
@@ -58,24 +95,22 @@
     margin: 0 auto;
 }
 
-.lost-pass {
-    text-align: center;
+#navigation-tab {
+    margin: 0px;
+    padding: 0px;
+    font: normal 12px "HG丸ｺﾞｼｯｸM-PRO";
+    position: relative;
+    bottom: 4px;
 }
 
-.lost-pass > a {
-    color: #184890;
+#lost-pass {
+    border: 1px solid #466bb0;
 }
 
-.mpw-block-footer {
-    background-color: #466bb0;
-    border-bottom-left-radius: 20px 20px;
-    border-bottom-right-radius: 20px 20px;
-    font-size: 0px;
-    height: 10px;
-}
-
-.block {
-    margin-bottom: 5px;
+#lost-pass > p {
+    color: #900;
+    margin: 24px;
+    font-size: 13px;
 }
 
 #mpw-footer {
@@ -94,21 +129,56 @@
 }
 
 #mpw-header {
-    background: url(../img/logo.jpg) no-repeat left top;
+    background: url(../images/logo.jpg) no-repeat left top;
     background-color: #466bb0;
     height: 70px;
     margin-bottom: 8px;
-    text-align: right;
     width: 100%;
 }
 
 #mpw-prompt {
     color: #f0f069;
     font-size: 11px;
-    padding: 14px;
+    padding: 10px;
+    text-align: right;
 }
+
 
 #mpw-prompt > span {
     cursor: pointer;
     text-decoration: underline;
+}
+
+#mpw-prompt > span > a {
+    color: #f0f069;
+}
+
+#navigation-tab .active > a,
+#navigation-tab .active > a:hover {
+    border-top-left-radius: 8px 8px;
+    border-top-right-radius: 8px 8px;
+    background: #fff;
+    color: #303098;
+}
+
+#navigation-tab li > a {
+    border-top-left-radius: 8px 8px;
+    border-top-right-radius: 8px 8px;
+    background: -webkit-linear-gradient(top, rgb(76, 113, 169) 0%, rgb(24, 72, 144) 63%, rgb(24, 72, 144) 100%);
+    background: -o-linear-gradient(top, rgb(76, 113, 169) 0%, rgb(24, 72, 144) 63%, rgb(24, 72, 144) 100%);
+    background: -ms-linear-gradient(top, rgb(76, 113, 169) 0%, rgb(24, 72, 144) 63%, rgb(24, 72, 144) 100%);
+    background: -moz-linear-gradient(top, rgb(76, 113, 169) 0%, rgb(24, 72, 144) 63%, rgb(24, 72, 144) 100%);
+    background: linear-gradient(to bottom, rgb(76, 113, 169) 0%, rgb(24, 72, 144) 63%, rgb(24, 72, 144) 100%);
+    color: #fff;
+}
+
+#navigation-tab li > a:hover {
+    border-top-left-radius: 8px 8px;
+    border-top-right-radius: 8px 8px;
+    background: -webkit-linear-gradient(top, rgb(73, 111, 150) 0%, rgb(97, 130, 152) 20%, rgb(47, 90, 147) 60%, rgb(24, 72, 144) 100%);
+    background: -o-linear-gradient(top, rgb(73, 111, 150) 0%, rgb(97, 130, 152) 20%, rgb(47, 90, 147) 60%, rgb(24, 72, 144) 100%);
+    background: -ms-linear-gradient(top, rgb(73, 111, 150) 0%, rgb(97, 130, 152) 20%, rgb(47, 90, 147) 60%, rgb(24, 72, 144) 100%);
+    background: -moz-linear-gradient(top, rgb(73, 111, 150) 0%, rgb(97, 130, 152) 20%, rgb(47, 90, 147) 60%, rgb(24, 72, 144) 100%);
+    background: linear-gradient(to bottom, rgb(73, 111, 150) 0%, rgb(97, 130, 152) 20%, rgb(47, 90, 147) 60%, rgb(24, 72, 144) 100%);
+    color: #fff;
 }

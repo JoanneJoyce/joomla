@@ -5,6 +5,8 @@
  * 
  * @copyright   Copyright (C) 2018 Japan Inter Systems Co., Ltd. All rights reserved
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * 
+ * @author      Christopher Fabula
  */
 
 defined('_JEXEC') or die;
@@ -13,6 +15,7 @@ defined('_JEXEC') or die;
 
 $app  = JFactory::getApplication();
 $user = JFactory::getUser();
+$templatePath = $this->baseurl . '/templates/' . $this->template;
 
 // Output as HTML5
 $this->setHtml5(true);
@@ -35,7 +38,7 @@ if ($task === 'edit' || $layout === 'form') {
 }
 
 // Add JavaScript Frameworks
-JHtml::_('bootstrap.framework');
+// JHtml::_('bootstrap.framework');
 
 // Add template js
 JHtml::_('script', 'template.js', array('version' => 'auto', 'relative' => true));
@@ -96,44 +99,45 @@ if ($this->params->get('logoFile')) {
     // . ($params->get('fluidContainer') ? ' fluid' : '');
     ?><!--">-->
     <div class="grid-container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-        <header id="mpw-header">
-            <div class="grid-x" id="mpw-navi">
-                <div class="large-12 cell" id="mpw-prompt">
-                    <?php if ($user->username) : ?>
-                        <img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/img/userinfo.png">&nbsp;<span><?php echo $user->name; ?></span>&nbsp;さん
-                    <?php else : ?>
-                        ユーザーＩＤ・パスワードを入力してログインして下さい
-                    <?php endif; ?>
-                </div>
-                <nav class="large-12 cell" id="mpw-nav">
+    <header class="grid-x" id="mpw-header">
+        <div class="small-12 cell" id="mpw-prompt">
+            <?php if ($user->username) : ?>
+                <img src="<?php echo $templatePath; ?>/images/userinfo.png">&nbsp;
+                <span>
+                    <a href="<?php echo JRoute::_('index.php?option=com_users&view=profile'); ?>">
+                        <?php echo $user->name; ?>
+                    </a>
+                </span>&nbsp;さん
+            <?php else : ?>
+                ユーザーＩＤ・パスワードを入力してログインして下さい
+            <?php endif; ?>
+        </div>
+        <nav class="small-12 cell" id="mpw-nav">
+            <div class="grid-x">
+                <div class="cell auto"></div>
+                <div class="shrink cell">
                     <jdoc:include type="modules" name="nav" />
-                </nav>
+                </div>
             </div>
-        </header>
-        <main class="grid-x">
-            <aside class="large-2 cell">
-                <jdoc:include type="modules" name="left-sidebar" />
-            </aside>
-            <section class="cell auto">
-                <!-- <jdoc:include type="component" /> -->
-                <jdoc:include type="modules" name="center-left" />
-                <jdoc:include type="modules" name="center" />
-                <jdoc:include type="modules" name="center-right" />
-            </section>
-            <aside class="large-2 cell">
-                <jdoc:include type="modules" name="right-sidebar" />
-            </aside>
-        </main>
-        <footer class="grid-x" id="mpw-footer">
-            <div class="cell auto">
-                <img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/img/mpw_logo.gif" alt="MedicalPartner" />
-                <img src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/img/copyright.png" width="350" height="14" alt="NIHON INTER SYSTEMS" />
-            </div>
-        </footer>
+        </nav>
+    </header>
+    <div class="grid-x">
+        <aside class="small-2 cell">
+            <jdoc:include type="modules" name="left-sidebar" style="blocks"/>
+        </aside>
+        <main class="small-8 cell">
+            <jdoc:include type="component" />
+            <jdoc:include type="modules" name="center" />
+        </main>        
+        <aside class="small-2 cell">
+            <jdoc:include type="modules" name="right-sidebar" style="blocks"/>
+        </aside>
     </div>
-    <script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/vendor/jquery.js"></script>
-    <script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/vendor/what-input.js"></script>
-    <script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/vendor/foundation.js"></script>
-    <script src="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/js/app.js"></script>
+    <jdoc:include type="modules" name="footer" />
+    </div>
+    <script src="<?php echo $templatePath; ?>/js/vendor/jquery.js"></script>
+    <script src="<?php echo $templatePath; ?>/js/vendor/what-input.js"></script>
+    <script src="<?php echo $templatePath; ?>/js/vendor/foundation.js"></script>
+    <script src="<?php echo $templatePath; ?>/js/app.js"></script>
 </body>
 </html>
