@@ -48,6 +48,7 @@ JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true
 
 // Add Stylesheets
 JHtml::_('stylesheet', 'template.css', array('version' => 'auto', 'relative' => true));
+JHtml::_('stylesheet', 'calendar.css', array('version' => 'auto', 'relative' => true));
 JHtml::_('stylesheet', 'foundation.min.css', array('version' => 'auto', 'relative' => true));
 
 // Use of Google Font
@@ -107,9 +108,9 @@ if ($this->params->get('logoFile')) {
                     <a href="<?php echo JRoute::_('index.php?option=com_users&view=profile'); ?>">
                         <?php echo $user->name; ?>
                     </a>
-                </span>&nbsp;„Åï„Çì
+                </span>&nbsp;??????
             <?php else : ?>
-                „É¶„Éº„Ç∂„ÉºÔº©Ôº§„Éª„Éë„Çπ„ÉØ„Éº„Éâ„ÇíÂÖ•Âäõ„Åó„Å¶„É≠„Ç∞„Ç§„É≥„Åó„Å¶‰∏ã„Åï„ÅÑ
+                ?????º„?∂„?ºÔº©Ôº§„?ª„????π„????º„???????•Â??????????≠„?∞„?§„?≥„?????‰∏???????
             <?php endif; ?>
         </div>
         <nav class="small-12 cell" id="mpw-nav">

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_VIEW_DEFAULT_TITLE">
+		<message>COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_VIEW_DEFAULT_DESC</message>
+	</layout>
+    <fields 
+            name="request"
+            addfieldpath="/administrator/components/com_helloworld/models/fields"
+            >
+		<fieldset name="request">
+			<field
+					name="id"
+					type="list"
+					label="COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_FIELD_GREETING_LABEL"
+					description="COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_FIELD_GREETING_DESC"
+					default="1">
+                                <option value="1">Troubled Patient - 1!</option>
+                                <option value="2">Troubled Patient - 2!</option>
+                        </field>
+		</fieldset>
+	</fields>
+</metadata>

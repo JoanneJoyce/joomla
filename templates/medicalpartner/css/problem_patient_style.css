@@ -1,0 +1,28 @@
+
+.outer {
+    border: 1px solid #466bb0;
+    width: 100%;
+}
+
+table {
+    border-color: #466bb0;
+    font-size: 13px;
+    border-collapse: separate;
+}
+
+.button{
+    vertical-align: middle;
+    margin: 0 0 1rem 0;
+    font-family: inherit;
+    padding: .85em 1em;
+    -webkit-appearance: none;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    transition: background-color .25s ease-out,color .25s ease-out;
+    font-size: .9rem;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #2ba6cb;
+    color: #fefefe;
+}

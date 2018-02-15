@@ -677,7 +677,7 @@ cite {
   font-size: 0.8125rem;
   color: #8a8a8a; }
   cite:before {
-    content: "— "; }
+    content: "??? "; }
 
 abbr, abbr[title] {
   border-bottom: 1px dotted #0a0a0a;

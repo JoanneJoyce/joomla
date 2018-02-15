@@ -7,7 +7,7 @@
     <author>Medical Partner</author>
     <authorEmail>admin@medicalpartner.jp</authorEmail>
     <copyright>Copyright (C) 2018 NIHON INTER SYSTEMS Co., Ltd. All rights reserved</copyright>
-    <description>TPL_MEDICAL_PARTNER_XML_DESCRIPTION</description>
+    <description>Medical Partner Theme for Groupware of Kyuseiki Hospital</description>
     <files>
         <filename>favicon.ico</filename>
         <filename>index.php</filename>
