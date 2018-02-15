@@ -17,7 +17,19 @@
 class TroublesomePatientControllerProblem_patient extends JControllerForm
 {
     function deleteUser(){
-        echo '<script>alert("Deleting User..."); </script>';
+        
+        $id = JRequest::getVar('patient_id');
+        $action = JRequest::getVar('patient_action');
+        
+        if($action == "削除"){
+            $model = $this->getModel('troublesomepatient'); 
+            $model->delete($id);
+            parent::display();
+        } else{
+            echo "<script>alert('You want to edit $id');</script>";
+            parent::display();
+        }
+        
     }
 
 }

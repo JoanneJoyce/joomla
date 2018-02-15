@@ -51,7 +51,22 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		return $this->message;
 	}
 
+	public function delete($id){
+		$db = JFactory::getDbo();
 
+		$query = $db->getQuery(true);
 
+		// delete all custom keys for id passed.
+		$conditions = array(
+			$db->quoteName('pid') . ' = ' . $id
+		);
 
+		$query->delete($db->quoteName('#__problem_patient'));
+		$query->where($conditions);
+
+		$db->setQuery($query);
+
+		$result = $db->execute();
+		echo "<script>alert('You want to delete $id');</script>";
+	}
 }

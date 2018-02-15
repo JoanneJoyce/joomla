@@ -19,8 +19,6 @@ JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/problem_patie
 JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/calendar.js');
 
 $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/problem_patient_style.css');
-$var = JRoute::_(Juri::base() .'index.php?option=com_troublesomepatient&task=problem_patient.deleteUser');
-echo $var;
 ?>
 
 <form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patient.deleteUser&controller=problem_patient');?>" method="get">
