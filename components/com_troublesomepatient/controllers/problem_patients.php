@@ -32,7 +32,7 @@ class TroublesomePatientControllerProblem_patients extends JControllerForm
         else{
             $model = $this->getModel('troublesomepatient'); 
             $model->getData($id);
-            parent::insertUser();
+            parent::display();
         }
         
     }

@@ -26,19 +26,24 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		// Assign data to the view
-		$this->msg = $this->get('Msg');
+		if($action == "編集"){
 
-		// Check for errors.
-		if (count($errors = $this->get('Errors')))
-		{
-			JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
+		} else{
+			// Assign data to the view
+			$this->msg = $this->get('Msg');
 
-			return false;
+			// Check for errors.
+			if (count($errors = $this->get('Errors')))
+			{
+				JLog::add(implode('<br />', $errors), JLog::WARNING, 'jerror');
+
+				return false;
+			}
+
+			// Display the view
+			parent::display($tpl);
 		}
-
-		// Display the view
-		parent::display($tpl);
+	
 	}
 
 	function insertUser(){

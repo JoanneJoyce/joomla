@@ -70,15 +70,14 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
         </tbody>
     </table>
-    <!-- <input type="hidden" name="task" value="problem_patients.actionUser" /> -->
-    <?php
-    $var = $_POST;
-        $action = JRequest::getVar('patient_action');
-        if($action == "削除"){ ?>
+    <input type="hidden" name="task" value="problem_patients.actionUser" />
+    <!-- <?php
+        // $action = JRequest::getVar('patient_action');
+        // if($action == "削除"){ ?>
             <input type="hidden" name="task" value="problem_patients.actionUser" />
-        <?php } else { ?>
-            <input type="hidden" name="task" value="insertUser" />
-        <?php } ?> 
+        <?php ?> -->
+            <!-- <input type="hidden" name="task" value="insertUser" /> -->
+        <!-- <?php  ?>  -->
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 
