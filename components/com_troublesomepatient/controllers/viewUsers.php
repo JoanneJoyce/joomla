@@ -14,22 +14,25 @@
  *
  * @since  0.0.1
  */
-class TroublesomePatientControllerProblem_patient extends JControllerForm
+class TroublesomePatientControllerViewUsers extends JControllerAdmin
 {
-    function deleteUser(){
+    function view(){
+
+        $app = JFactory::getApplication();
+        $getData = $app->input->get;
         
-        $id = JRequest::getVar('patient_id');
-        $action = JRequest::getVar('patient_action');
-        
+        $id = $getData->get('patient_id', '', 'int');
+        $action = $getData->get('patient_action', '', 'string');
+
         if($action == "削除"){
             $model = $this->getModel('troublesomepatient'); 
             $model->delete($id);
             parent::display();
         } else{
-            echo "<script>alert('You want to edit $id');</script>";
-            parent::display();
+            $model = $this->getModel('troublesomepatient'); 
+            $model->getData($id);
+            parent::insertUser();
         }
         
     }
-
 }

@@ -19,9 +19,11 @@ JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/problem_patie
 JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/calendar.js');
 
 $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/problem_patient_style.css');
+// $var = JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients&id=patient_id');
+// echo $var;
 ?>
 
-<form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patient.deleteUser&controller=problem_patient');?>" method="get">
+<form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.actionUser&controller=problem_patients&id=patient_id');?>" method="get">
     <table width="100%" class="outer" cellspacing="1">
         <tbody>
             <tr>
@@ -53,8 +55,8 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                 <td class="head" width="20%"></td>
                 <td class="even">
                     <select size="1" name="patient_action" id="patient_action">
-                        <option value="編集">編集</option>
-                        <option value="削除">削除</option>
+                        <option value="編集" >編集</option>
+                        <option value="削除" >削除</option>
                     </select>
                 </td>
             </tr>
@@ -68,14 +70,22 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="task" value="problem_patient.deleteUser" />
+    <!-- <input type="hidden" name="task" value="problem_patients.actionUser" /> -->
+    <?php
+    $var = $_POST;
+        $action = JRequest::getVar('patient_action');
+        if($action == "削除"){ ?>
+            <input type="hidden" name="task" value="problem_patients.actionUser" />
+        <?php } else { ?>
+            <input type="hidden" name="task" value="insertUser" />
+        <?php } ?> 
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 
 <?php 
     if ($user->authorise('core.admin')) {
 ?>
-<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();">
+<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients');?>" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();">
     <table width="100%" class="outer" cellspacing="1">
         <tbody>
             <tr>
@@ -166,6 +176,8 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
         </tbody>
     </table>
+    <input type="hidden" name="task" value="problem_patients.insertUser" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>
 <?php }
     else {

@@ -27,7 +27,6 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 	function display($tpl = null)
 	{
 		// Assign data to the view
-		$var = $_POST;
 		$this->msg = $this->get('Msg');
 
 		// Check for errors.
@@ -43,6 +42,6 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 	}
 
 	function insertUser(){
-
+		echo '<script>alert();</script>';
 	}
 }
