@@ -32,6 +32,11 @@ class TroublesomePatientControllerProblem_patients extends JControllerForm
         else{
             $model = $this->getModel('troublesomepatient'); 
             $model->getData($id);
+            
+            $view = $this->getView('troublesomepatient', 'html');
+            $view->results = $model;
+            $view->display();
+
             parent::display();
         }
         

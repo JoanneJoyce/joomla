@@ -111,6 +111,5 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$db->setQuery($query);
 		$db->execute();
 		$row = $db->loadObjectList();
-		// echo '<script>alert("'. $row .'");</script>';
 	}
 }

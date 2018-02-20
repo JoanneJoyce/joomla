@@ -26,9 +26,7 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		if($action == "編集"){
-
-		} else{
+		
 			// Assign data to the view
 			$this->msg = $this->get('Msg');
 
@@ -42,8 +40,6 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 
 			// Display the view
 			parent::display($tpl);
-		}
-	
 	}
 
 	function insertUser(){
