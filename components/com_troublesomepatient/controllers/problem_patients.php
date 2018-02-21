@@ -20,36 +20,50 @@ class TroublesomePatientControllerProblem_patients extends JControllerForm
 
         $app = JFactory::getApplication();
         $getData = $app->input->get;
-        
+
         $id = $getData->get('patient_id', '', 'int');
         $action = $getData->get('patient_action', '', 'string');
 
         if($action == "削除"){
             $model = $this->getModel('troublesomepatient'); 
             $model->delete($id);
-            parent::display();
         } 
-        else{
-            $model = $this->getModel('troublesomepatient'); 
-            $model->getData($id);
+        else{          
             
-            $view = $this->getView('troublesomepatient', 'html');
-            $view->results = $model;
-            $view->display();
+            $session = JFactory::getSession();
+            $session->set("id", $id);
 
-            parent::display();
+            $view = $this->getView('troublesomepatient', 'html');
+            $view->setModel($this->getModel('troublesomepatient'), true);
+            $view->insertUser($id);
         }
-        
+        parent::display();
+
     }
 
     function insertUser(){
         
         $app = JFactory::getApplication();
         $getData = $app->input->post;
-        
-        $model = $this->getModel('troublesomepatient');
-        $model->insert($getData);
 
+        $session = JFactory::getSession();
+
+        $actionBtn = $getData->getString('submit');
+
+        if($actionBtn == "登録"){
+           
+            $model = $this->getModel('troublesomepatient');
+            $model->insert($getData);
+
+        } else{
+            $pid = $session->get('id');
+
+            $model = $this->getModel('troublesomepatient');
+            $model->update($getData, $pid);
+            
+            unset($pid);
+
+        }
         parent::display(); 
     }
 

@@ -57,9 +57,7 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$query = $db->getQuery(true);
 
 		// delete all custom keys for id passed.
-		$conditions = array(
-			$db->quoteName('pid') . ' = ' . $id
-		);
+		$conditions = $db->quoteName('pid') . ' = ' . $id;
 
 		$query->delete($db->quoteName('#__problem_patient'));
 		$query->where($conditions);
@@ -67,7 +65,6 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$db->setQuery($query);
 
 		$result = $db->execute();
-		echo "<script>alert('You want to delete $id');</script>";
 	}
 
 	public function insert($getData){
@@ -76,7 +73,7 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$furigana 	 = $getData->get('furigana', '', 'string');
 		$bday 		 = strtotime($getData->get('bday', '', 'int'));
 		$sex 		 = $getData->get('sex', '', 'int');
-		$occur_date  = $getData->get('occur_date', '', 'int');
+		$occur_date  = strtotime($getData->get('occur_date', '', 'int'));
 		$contents 	 = $getData->get('contents', '', 'string');
 		$event_level = $getData->get('event', '', 'int');
 		$regist_date = time();		
@@ -99,6 +96,46 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$result = JFactory::getDbo()->insertObject('#__problem_patient', $profile);
 	}
 
+	public function update($getData, $id){
+		$db = JFactory::getDbo();
+
+		$query = $db->getQuery(true);
+
+		$pid 		 = $getData->get('pid', '', 'int');
+		$pname 		 = $getData->get('pname', '', 'string');
+		$furigana 	 = $getData->get('furigana', '', 'string');
+		$bday 		 = strtotime($getData->get('bday', '', 'int'));
+		$sex 		 = $getData->get('sex', '', 'int');
+		$occur_date  = strtotime($getData->get('occur_date', '', 'int'));
+		$contents 	 = $getData->get('contents', '', 'string');
+		$event_level = $getData->get('event', '', 'int');
+		$regist_date = time();		
+		$update_date = time();
+
+		// Fields to update.
+		$fields = array(
+			$db->quoteName('pid') . ' = ' . $pid,
+			$db->quoteName('pname') . ' = ' . "'" .  $pname . "'",
+			$db->quoteName('furigana') . ' = ' . "'" . $furigana . "'",
+			$db->quoteName('bday') . ' = ' . $bday,
+			$db->quoteName('sex') . ' = ' . $sex,
+			$db->quoteName('occur_date') . ' = ' . $occur_date,
+			$db->quoteName('contents') . ' = ' . "'" . $contents . "'",
+			$db->quoteName('event_level') . ' = ' . $event_level,
+			$db->quoteName('regist_date') . ' = ' . $regist_date,
+			$db->quoteName('update_date') . ' = ' . $update_date
+		);
+
+		// Conditions for which records should be updated.
+		$conditions = $id . ' = ' . $db->quoteName('pid');
+
+		$query->update($db->quoteName('#__problem_patient'))->set($fields)->where($conditions);
+
+		$db->setQuery($query);
+
+		$result = $db->execute();
+	}
+
 	public function getData($id){
 		$db    = JFactory::getDbo();
 		$query = $db->getQuery(true);
@@ -111,5 +148,9 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 		$db->setQuery($query);
 		$db->execute();
 		$row = $db->loadObjectList();
+
+		$this->item = $row;
+		
+		return $this->item;
 	}
 }

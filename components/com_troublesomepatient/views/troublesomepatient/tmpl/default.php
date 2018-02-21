@@ -71,13 +71,6 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
         </tbody>
     </table>
     <input type="hidden" name="task" value="problem_patients.actionUser" />
-    <!-- <?php
-        // $action = JRequest::getVar('patient_action');
-        // if($action == "削除"){ ?>
-            <input type="hidden" name="task" value="problem_patients.actionUser" />
-        <?php ?> -->
-            <!-- <input type="hidden" name="task" value="insertUser" /> -->
-        <!-- <?php  ?>  -->
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 
@@ -94,21 +87,21 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                 <td class="head" width="20%">患者ＩＤ
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="even">
-                    <input type="text" name="pid" id="pid" size="80" maxlength="10" value="" style="ime-mode:active; width: 20%;">
+                    <input type="text" name="pid" id="pid" size="80" maxlength="10" value="<?php if(isset($this->items)){echo $this->items[0]->pid;} ?>" style="ime-mode:active; width: 20%;">
                 </td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者氏名
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="odd">
-                    <input type="text" name="pname" id="pname" size="80" maxlength="60" value="" style="ime-mode:active; width: 20%;">
+                    <input type="text" name="pname" id="pname" size="80" maxlength="60" value="<?php if(isset($this->items)){echo $this->items[0]->pname;} ?>" style="ime-mode:active; width: 20%;">
                 </td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者氏名（ふりがな）
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="even">
-                    <input type="text" name="furigana" id="furigana" size="80" maxlength="60" value="" style="ime-mode:active; width: 20%;">
+                    <input type="text" name="furigana" id="furigana" size="80" maxlength="60" value="<?php if(isset($this->items)){echo $this->items[0]->furigana;} ?>" style="ime-mode:active; width: 20%;">
                 </td>
             </tr>
             <tr valign="top" align="left">
@@ -116,7 +109,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="odd">
                     <span>
-                        <input type="text" name="bday" id="bday" size="0" maxlength="10" value="" style="vertical-align:middle;">
+                        <input type="text" name="bday" id="bday" size="0" maxlength="10" value="<?php if(isset($this->items)){echo date('Y/m/d', $this->items[0]->bday);} ?>" style="vertical-align:middle;">
                         <a href="#" onclick="return showCalendar('bday');">
                             <img src="images/calendar_btn.gif" width="33" height="20" style="vertical-align:middle;">
                         </a>
@@ -139,7 +132,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="odd">
                     <span>
-                        <input type="text" name="occur_date" id="occur_date" size="0" maxlength="10" value="" style="vertical-align:middle;">
+                        <input type="text" name="occur_date" id="occur_date" size="0" maxlength="10" value="<?php if(isset($this->items)){echo date('Y/m/d',$this->items[0]->occur_date);} ?>" style="vertical-align:middle;">
                         <a href="#" onclick="return showCalendar(&quot;occur_date&quot;);">
                             <img src="images/calendar_btn.gif" width="33" height="20" style="vertical-align:middle;">
                         </a>
@@ -151,7 +144,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                 <td class="head" width="20%">事例の内容
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="even">
-                    <textarea name="contents" id="contents" rows="10" cols="60" style="ime-mode:active; width:60%;"></textarea>
+                    <textarea name="contents" id="contents" rows="10" cols="60" style="ime-mode:active; width:60%;"><?php if(isset($this->items)){echo $this->items[0]->contents;} ?></textarea>
                 </td>
             </tr>
             <tr valign="top" align="left">
@@ -171,7 +164,11 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             <tr valign="top" align="left">
                 <td class="head" width="20%"></td>
                 <td class="even">
-                    <input type="submit" class="formButton" name="submit" id="submit" value="登録"> </td>
+                    <input type="submit" class="formButton" name="submit" id="submit" value="登録">
+                    <?php if(isset($this->items)){ ?>
+                        <input type="submit" class="formButton" name="submit" id="submit" value="編集">
+                    <?php } ?>
+                </td>
             </tr>
         </tbody>
     </table>
@@ -181,7 +178,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 <?php }
     else {
 ?>
-<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();">
+<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients');?>" method="post">
     <table width="100%" class="outer" cellspacing="1">
         <tbody>
             <tr>
@@ -189,19 +186,19 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者ＩＤ ：</td>
-                <td class="even"></td>
+                <td class="even"><?php if(isset($this->items)){echo $this->items[0]->pid;} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者氏名 ：</td>
-                <td class="odd"></td>
+                <td class="odd"><?php if(isset($this->items)){echo $this->items[0]->pname;} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者氏名（ふりがな）：</td>
-                <td class="even"></td>
+                <td class="even"><?php if(isset($this->items)){echo $this->items[0]->contents;} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者誕生日 ：</td>
-                <td class="odd"></td>
+                <td class="odd"><?php if(isset($this->items)){echo date('Y/m/d', $this->items[0]->bday);} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者の性別 ：</td>
@@ -209,11 +206,11 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">発生年月日 ：</td>
-                <td class="odd"></td>
+                <td class="odd"><?php if(isset($this->items)){echo date('Y/m/d',$this->items[0]->occur_date);} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">事例の内容 ：</td>
-                <td class="even"></td>
+                <td class="even"><?php if(isset($this->items)){echo $this->items[0]->contents;} ?></td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">事象のレベル ：</td>
@@ -223,5 +220,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
         </tbody>
     </table>
+    <input type="hidden" name="task" value="problem_patients.insertUser" />
+	<?php echo JHtml::_('form.token'); ?>
 </form>
     <?php } ?>

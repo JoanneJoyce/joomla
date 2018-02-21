@@ -26,7 +26,6 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		
 			// Assign data to the view
 			$this->msg = $this->get('Msg');
 
@@ -42,7 +41,9 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 			parent::display($tpl);
 	}
 
-	function insertUser(){
-		echo '<script>alert();</script>';
+	function insertUser($id){
+
+		$model = $this->getModel();
+		$this->items = $model->getData($id);
 	}
 }

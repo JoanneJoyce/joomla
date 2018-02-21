@@ -17,36 +17,6 @@ window.onload = function (){
         filter.populatePatients();
     };
     
-    function editDeletePatient(){
-        // var selected = document.getElementById("patient_id");
-        // var optVal = selected.options[selected.selectedIndex];
-            
-        //     if (selected.selectedIndex >= 0 ){
-        //         var xmlhttp = new XMLHttpRequest();
-
-        //         xmlhttp.onreadystatechange = function() {
-        //             if (xmlhttp.readyState == XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
-        //                if (xmlhttp.status == 200) {
-        //                 //    document.getElementById("myDiv").innerHTML = xmlhttp.responseText;
-        //                }
-        //                else if (xmlhttp.status == 400) {
-        //                   alert('There was an error 400');
-        //                }
-        //                else {
-        //                    alert('something else other than 200 was returned');
-        //                }
-        //             }
-        //         };
-            
-        //         xmlhttp.open("GET", "../../../components/com_troublesomepatient/controllers/problem_patient.php", true);
-        //         xmlhttp.send();
-        //     } else {
-        //         alert("Please select a user.");
-        //         return;
-        //     }
-    
-    }
-    
      // Formats event-level radio buttons
      var eventSelector = function () {
         var eventLevel = document.getElementsByName("event");
