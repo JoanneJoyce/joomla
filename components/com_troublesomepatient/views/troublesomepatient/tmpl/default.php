@@ -121,9 +121,9 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                 <td class="head" width="20%">患者の性別
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="even">
-                    <input id="男性" type="radio" name="sex" value="0" checked="checked">
+                    <input id="男性" type="radio" name="sex" value="0" <?php if(isset($this->items)){echo ($this->items[0]->sex=='0')?'checked':'';} else{echo 'checked';} ?> >
                     <label for="男性">男性</label>
-                    <input id="女性" type="radio" name="sex" value="1">
+                    <input id="女性" type="radio" name="sex" value="1" <?php if(isset($this->items)){echo ($this->items[0]->sex=='1')?'checked':'';} ?> >
                     <label for="女性">女性</label>
                 </td>
             </tr>
@@ -152,11 +152,11 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                     <img src="images/kome.png" class="png32" width="33" height="15">：</td>
                 <td class="odd">
                     <div style="background-color: yellow;">
-                        <input id="警告" type="radio" name="event" value="0" checked="checked">
+                        <input id="警告" type="radio" name="event" value="0" <?php if(isset($this->items)){echo ($this->items[0]->event_level=='0')?'checked':'';} else{echo 'checked';}?>>
                         <label for="警告">警告</label>
                     </div>
                     <div style="background-color: transparent; color: black;">
-                        <input id="拒否" type="radio" name="event" value="1">
+                        <input id="拒否" type="radio" name="event" value="1" <?php if(isset($this->items)){echo ($this->items[0]->event_level=='1')?'checked':'';} ?>>
                         <label for="拒否">拒否</label>
                     </div>
                 </td>
