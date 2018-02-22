@@ -41,7 +41,7 @@ class TroublesomePatientViewTroublesomePatient extends JViewLegacy
 			parent::display($tpl);
 	}
 
-	function insertUser($id){
+	function viewUser($id){
 
 		$model = $this->getModel();
 		$this->items = $model->getData($id);

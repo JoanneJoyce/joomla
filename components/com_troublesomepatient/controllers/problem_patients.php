@@ -35,13 +35,13 @@ class TroublesomePatientControllerProblem_patients extends JControllerForm
 
             $view = $this->getView('troublesomepatient', 'html');
             $view->setModel($this->getModel('troublesomepatient'), true);
-            $view->insertUser($id);
+            $view->viewUser($id);
         }
         parent::display();
 
     }
 
-    function insertUser(){
+    function insertUpdateUser(){
         
         $app = JFactory::getApplication();
         $getData = $app->input->post;

@@ -39,6 +39,7 @@
 		<filename>index.html</filename>
 		<filename>troublesomepatient.php</filename>
         <filename>controller.php</filename>
+		<folder>controllers</folder>
 		<folder>views</folder>
         <folder>models</folder>
 	</files>

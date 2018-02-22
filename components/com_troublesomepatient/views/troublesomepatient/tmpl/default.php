@@ -9,6 +9,7 @@
  
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+JHtml::_('behavior.formvalidator');
 
 $user = JFactory::getUser();
 
@@ -19,8 +20,6 @@ JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/problem_patie
 JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/calendar.js');
 
 $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/problem_patient_style.css');
-// $var = JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients&id=patient_id');
-// echo $var;
 ?>
 
 <form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.actionUser&controller=problem_patients&id=patient_id');?>" method="get">
@@ -77,7 +76,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 <?php 
     if ($user->authorise('core.admin')) {
 ?>
-<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients');?>" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();">
+<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUpdateUser&controller=problem_patients');?>" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();" class="form-validate">
     <table width="100%" class="outer" cellspacing="1">
         <tbody>
             <tr>
@@ -172,13 +171,13 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="task" value="problem_patients.insertUser" />
+    <input type="hidden" name="task" value="problem_patients.insertUpdateUser" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 <?php }
     else {
 ?>
-<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUser&controller=problem_patients');?>" method="post">
+<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUpdateUser&controller=problem_patients');?>" method="post">
     <table width="100%" class="outer" cellspacing="1">
         <tbody>
             <tr>
@@ -202,7 +201,12 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">患者の性別 ：</td>
-                <td class="even"></td>
+                <td class="even"><?php
+                                     if(isset($this->items)){ 
+                                         echo ($this->items[0]->sex=='0')?'男性':'女性';
+                                    } 
+                                ?>
+                </td>
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">発生年月日 ：</td>
@@ -215,12 +219,17 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             <tr valign="top" align="left">
                 <td class="head" width="20%">事象のレベル ：</td>
                 <td class="odd">
-                    <div></div>
+                    <div><?php 
+                            if(isset($this->items)){
+                                echo ($this->items[0]->event_level=='0')?'警告':'拒否';
+                            } 
+                        ?>
+                    </div>
                 </td>
             </tr>
         </tbody>
     </table>
-    <input type="hidden" name="task" value="problem_patients.insertUser" />
+    <input type="hidden" name="task" value="problem_patients.insertUpdateUser" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>
     <?php } ?>
