@@ -19,7 +19,7 @@ $document = JFactory::getDocument();
 JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/problem_patient.js');
 JHtml::script(Juri::base() . 'templates/'.$app->getTemplate().'/js/calendar.js');
 
-$document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/problem_patient_style.css');
+// $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/problem_patient_style.css');
 ?>
 
 <form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.actionUser&controller=problem_patients&id=patient_id');?>" method="get">
