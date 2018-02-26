@@ -1,13 +1,37 @@
-
-.outer {
+table.outer {
+    border-color: #466bb0;
     border: 1px solid #466bb0;
+    font-size: 13px;
+    border-collapse: separate;
+    border-spacing: 2px;
     width: 100%;
 }
 
-table {
-    border-color: #466bb0;
+table th{
+    background-image: url(../images/th_bg.gif);
+}
+
+table .head{
+    background-color: #466bb0;
+    color: #ffffff;
+}
+
+INPUT SELECT TEXTAREA{
     font-size: 13px;
-    border-collapse: separate;
+}
+
+#search_patient{
+    width: 30%;
+}
+
+#patient_action{
+    width: 10%;
+}
+
+#patient_id{
+    height:110px; 
+    width:40%; 
+    outline:0;
 }
 
 .button{

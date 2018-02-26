@@ -3,7 +3,7 @@
 	<layout title="COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_VIEW_DEFAULT_TITLE">
 		<message>COM_TROUBLESOMEPATIENT_TROUBLESOMEPATIENT_VIEW_DEFAULT_DESC</message>
 	</layout>
-    <fields 
+    <!-- <fields 
             name="request"
             addfieldpath="/administrator/components/com_helloworld/models/fields"
             >
@@ -18,5 +18,29 @@
                                 <option value="2">Troubled Patient - 2!</option>
                         </field>
 		</fieldset>
-	</fields>
+	</fields> -->
+
+	<form>
+	<fieldset name="primary_fieldset">
+                <field
+                        id="search_patient"
+                        name="search_patient"
+                        type="text"
+                />
+				<field
+                        id="id"
+                        name="id"
+                        type="text"
+                />
+                <field
+                	id="patient_id"
+                        name="patient_id"
+                        type="list"
+                        label="Primary Selection"
+                        default="red">
+                        <option value="red">Red</option>
+                        <option value="blue">Blue</option>
+                </field>
+        </fieldset>
+	</form>
 </metadata>
