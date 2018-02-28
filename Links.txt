@@ -1,1 +1,2 @@
 https://docs.joomla.org/J3.x:Developing_an_MVC_Component/Adding_configuration/en
+https://docs.joomla.org/J3.x:Developing_an_MVC_Component/Adding_a_front-end_form
