@@ -15,7 +15,7 @@ defined('_JEXEC') or die('Restricted access');
  * This is the site view presenting the user with the ability to add a new Helloworld record
  * 
  */
-class HelloWorldViewForm extends JViewLegacy
+class TroublesomePatientViewForm extends JViewLegacy
 {
 
 	protected $form = null;
@@ -36,7 +36,7 @@ class HelloWorldViewForm extends JViewLegacy
 		$this->script = $this->get('Script'); 
 
 		// Check that the user has permissions to create a new helloworld record
-		$this->canDo = JHelperContent::getActions('com_helloworld');
+		$this->canDo = JHelperContent::getActions('com_troublesomepatient');
 		if (!($this->canDo->get('core.create'))) 
 		{
 			$app = JFactory::getApplication(); 
@@ -66,10 +66,10 @@ class HelloWorldViewForm extends JViewLegacy
 	protected function setDocument() 
 	{
 		$document = JFactory::getDocument();
-		$document->setTitle(JText::_('COM_HELLOWORLD_HELLOWORLD_CREATING'));
-		$document->addScript(JURI::root() . $this->script);
-		$document->addScript(JURI::root() . "/administrator/components/com_helloworld"
-		                                  . "/views/helloworld/submitbutton.js");
+		$document->setTitle(JText::_('COM_TROUBLESOME_TROUBLESOME_CREATING'));
+		// $document->addScript(JURI::root() . $this->script);
+		// $document->addScript(JURI::root() . "/administrator/components/com_helloworld"
+		//                                   . "/views/helloworld/submitbutton.js");
 		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
 	}
 }
