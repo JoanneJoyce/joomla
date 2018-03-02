@@ -20,7 +20,7 @@ JHtml::_('behavior.formvalidator');
 
 	<div class="form-horizontal">
 		<fieldset class="adminform">
-			<legend><?php echo JText::_('COM_TROUBLESOME_LEGEND_DETAILS') ?></legend>
+			<legend><?php echo JText::_('COM_HELLOWORLD_LEGEND_DETAILS') ?></legend>
 			<div class="row-fluid">
 				<div class="span6">
 					<?php echo $this->form->renderFieldset('details');  ?>

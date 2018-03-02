@@ -9,14 +9,13 @@
 				type="hidden"
 				/>
 		<field
-				name="greeting"
+				name="pid"
 				type="text"
-				label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
+				label="Patient ID/Name"
 				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
 				size="40"
 				class="inputbox"
-				validate="greeting"
-				required="true"
+				required="false"
                 hint="COM_HELLOWORLD_HELLOWORLD_GREETING_HINT"
 				default=""
 				/>
