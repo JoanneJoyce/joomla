@@ -3,7 +3,7 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 // No direct access to this file
@@ -52,8 +52,7 @@ class HelloWorldModelHelloWorlds extends JModelList
 		$query = $db->getQuery(true);
 
 		// Create the base select statement.
-		$query->select('a.id as id, a.greeting as greeting, a.published as published, a.created as created, 
-			  a.image as imageInfo')
+		$query->select('a.id as id, a.greeting as greeting, a.published as published, a.created as created')
 			  ->from($db->quoteName('#__helloworld', 'a'));
 
 		// Join over the categories.

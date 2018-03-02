@@ -15,19 +15,19 @@
 			<option value="0">JHIDE</option>
 			<option value="1">JSHOW</option>
 		</field>
-        <field
+		<field
 			name="captcha"
 			type="plugins"
-            folder="captcha"
+			folder="captcha"
 			label="COM_HELLOWORLD_HELLOWORLD_FIELD_CAPTCHA_LABEL"
 			description="COM_HELLOWORLD_HELLOWORLD_FIELD_CAPTCHA_DESC"
 			default="0"
 			filter="cmd"
 		>
-            <option value="">JOPTION_USE_DEFAULT</option>
+			<option value="">JOPTION_USE_DEFAULT</option>
 			<option value="0">JOPTION_DO_NOT_USE</option>
 		</field>
-        <field
+		<field
 			name="user_to_email"
 			type="user"
 			label="COM_HELLOWORLD_HELLOWORLD_FIELD_USER_TO_EMAIL_LABEL"
@@ -36,7 +36,7 @@
 		>
 		</field>
 	</fieldset>
-    <fieldset
+	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"
 		description="JCONFIG_PERMISSIONS_DESC"

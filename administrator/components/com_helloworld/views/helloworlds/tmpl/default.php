@@ -3,14 +3,12 @@
  * @package     Joomla.Administrator
  * @subpackage  com_helloworld
  *
- * @copyright   Copyright (C) 2005 - 2015 Open Source Matters, Inc. All rights reserved.
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
-
-use Joomla\Registry\Registry;
 
 JHtml::_('formbehavior.chosen', 'select');
 
@@ -44,12 +42,9 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
                     <?php echo JHtml::_('searchtools.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'greeting', $listDirn, $listOrder); ?>
                 </th>
                 <th width="30%">
-                    <?php echo JText::_('COM_HELLOWORLD_HELLOWORLDS_IMAGE'); ?>
-                </th>
-                <th width="15%">
                     <?php echo JHtml::_('searchtools.sort', 'COM_HELLOWORLD_AUTHOR', 'author', $listDirn, $listOrder); ?>
                 </th>
-                <th width="15%">
+                <th width="30%">
                     <?php echo JHtml::_('searchtools.sort', 'COM_HELLOWORLD_CREATED_DATE', 'created', $listDirn, $listOrder); ?>
                 </th>
                 <th width="5%">
@@ -71,8 +66,6 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
                 <?php if (!empty($this->items)) : ?>
                     <?php foreach ($this->items as $i => $row) :
                         $link = JRoute::_('index.php?option=com_helloworld&task=helloworld.edit&id=' . $row->id);
-                        $row->image = new Registry;
-                        $row->image->loadString($row->imageInfo);
                     ?>
                         <tr>
                             <td><?php echo $this->pagination->getRowOffset($i); ?></td>
@@ -84,15 +77,8 @@ $listDirn      = $this->escape($this->state->get('list.direction'));
                                     <?php echo $row->greeting; ?>
                                 </a>
                                 <div class="small">
-                                    <?php echo JText::_('JCATEGORY') . ': ' . $this->escape($row->category_title); ?>
-                                </div>
-                            </td>
-                            <td align="center">
-                                <?php
-                                    $caption = $row->image->get('caption') ? : '' ;
-                                    $src = JURI::root() . ($row->image->get('image') ? : '' );
-                                    $html = '<p class="hasTooltip" style="display: inline-block" data-html="true" data-toggle="tooltip" data-placement="right" title="<img width=\'100px\' height=\'100px\' src=\'%s\'>">%s</p>';
-                                    echo sprintf($html, $src, $caption);  ?>
+									<?php echo JText::_('JCATEGORY') . ': ' . $this->escape($row->category_title); ?>
+								</div>
                             </td>
                             <td align="center">
                                 <?php echo $row->author; ?>

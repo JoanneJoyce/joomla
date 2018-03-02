@@ -31,17 +31,16 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 		$app = JFactory::getApplication();
 		$context = "helloworld.list.admin.helloworld";
 		// Get data from the model
-		$this->items			= $this->get('Items');
-		$this->pagination		= $this->get('Pagination');
-		$this->state			= $this->get('State');
-		// Remove the old ordering mechanism
-		//$this->filter_order 	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'greeting', 'cmd');
-		//$this->filter_order_Dir = $app->getUserStateFromRequest($context.'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
+		$this->items		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
+		$this->state		= $this->get('State');
+		// $this->filter_order	= $app->getUserStateFromRequest($context.'filter_order', 'filter_order', 'greeting', 'cmd');
+		// $this->filter_order_Dir = $app->getUserStateFromRequest($context.'filter_order_Dir', 'filter_order_Dir', 'asc', 'cmd');
 		$this->filterForm    	= $this->get('FilterForm');
 		$this->activeFilters 	= $this->get('ActiveFilters');
-        
+
 		// What Access Permissions does this user have? What can (s)he do?
-		$this->canDo = JHelperContent::getActions('com_helloworld');
+		$this->canDo = HelloWorldHelper::getActions();
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -50,7 +49,7 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 
 			return false;
 		}
-        
+
 		// Set the submenu
 		HelloWorldHelper::addSubmenu('helloworlds');
 
@@ -81,6 +80,7 @@ class HelloWorldViewHelloWorlds extends JViewLegacy
 		}
 
 		JToolBarHelper::title($title, 'helloworld');
+
 		if ($this->canDo->get('core.create')) 
 		{
 			JToolBarHelper::addNew('helloworld.add', 'JTOOLBAR_NEW');
