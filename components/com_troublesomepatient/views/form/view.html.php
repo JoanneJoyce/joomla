@@ -66,10 +66,10 @@ class TroublesomePatientViewForm extends JViewLegacy
 	protected function setDocument() 
 	{
 		$document = JFactory::getDocument();
-		$document->setTitle(JText::_('COM_TROUBLESOME_TROUBLESOME_CREATING'));
+		$document->setTitle(JText::_("HelloWorld - Creating"));
 		// $document->addScript(JURI::root() . $this->script);
 		// $document->addScript(JURI::root() . "/administrator/components/com_helloworld"
 		//                                   . "/views/helloworld/submitbutton.js");
-		JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
+		// JText::script('COM_HELLOWORLD_HELLOWORLD_ERROR_UNACCEPTABLE');
 	}
 }
