@@ -218,9 +218,12 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
             </tr>
             <tr valign="top" align="left">
                 <td class="head" width="20%">事象のレベル ：</td>
-                <td class="odd">
-                    <div><?php 
-                            if(isset($this->items)){
+                <td class="odd"> 
+                    <?php 
+                        if(isset($this->items)){
+                    ?>
+                    <div style="background-color: <?php echo ($this->items[0]->event_level=='0') ? 'yellow' : 'red' ?>;" >
+                       <?php
                                 echo ($this->items[0]->event_level=='0')?'警告':'拒否';
                             } 
                         ?>

@@ -31,7 +31,7 @@ class TroublePatient2ModelTroublePatient2 extends JModelItem
 	{
 		if (!isset($this->message))
 		{
-			$this->message = 'Hello World 2!';
+			$this->message = '';
 		}
 
 		return $this->message;

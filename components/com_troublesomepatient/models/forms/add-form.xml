@@ -3,45 +3,122 @@
     <fieldset
 				name="details"
 				label="COM_HELLOWORLD_HELLOWORLD_DETAILS"
+				addfieldpath="/administrator/components/com_troublesomepatient/models/fields"
 	>
 		<field
-				name="id"
-				type="hidden"
+				name="search_patient"
+				type="text"
+				label=""
+				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
+				class="inputbox"
+				required="false"
+                hint=""
+				default=""
+				maxlength="60"
 				/>
+       
+
+		<field
+			name="patient_id"
+			type="SelectPatient"
+			label=""
+			/>
+
+		<field
+			name="sample"
+			type="EventRadio"
+			label=""
+			/>
+		
+        <field
+				name="patient_action"
+				type="category"
+				extension="com_troublesomepatient"
+				default=""
+				label=""
+				description=""
+				size="1"
+                >
+			<option value="編集">編集</option>
+			<option value="削除">削除</option>
+		</field>
+
 		<field
 				name="pid"
 				type="text"
-				label="Patient ID/Name"
-				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
-				size="40"
-				class="inputbox"
+				label=""
 				required="false"
-                hint="COM_HELLOWORLD_HELLOWORLD_GREETING_HINT"
-				default=""
-				/>
-        <field
-				name="catid"
-				type="category"
-				extension="com_helloworld"
-				class="inputbox"
-				default=""
-				label="COM_HELLOWORLD_HELLOWORLD_FIELD_CATID_LABEL"
-				description="COM_HELLOWORLD_HELLOWORLD_FIELD_CATID_DESC"
-				required="true"
-                >
-			<option value="0">JOPTION_SELECT_CATEGORY</option>
+				size="80"
+				maxlength="10"
+                />
+
+		<field
+				name="pname"
+				type="text"
+				label=""
+				required="false"
+				size="80"
+				maxlength="60"
+                />
+
+		<field
+				name="furigana"
+				type="text"
+				label=""
+				required="false"
+				size="80"
+				maxlength="60"
+                />
+		
+		<field
+				name="bday"
+				type="text"
+				label=""
+				required="false"
+				size="0"
+				maxlength="10"
+                />
+		
+		<field
+				name="sex"
+				type="radio"
+				label=""
+				default="0"
+				>
+				<option value="0">男性</option>
+				<option value="1">女性</option>
 		</field>
-        <field
-                name="message"
-                type="textarea"
-                rows="5"
-                cols="80"
-				label="COM_HELLOWORLD_HELLOWORLD_MESSAGE_LABEL"
-				description="COM_HELLOWORLD_HELLOWORLD_MESSAGE_DESC"
-                hint="COM_HELLOWORLD_HELLOWORLD_MESSAGE_HINT"
-				required="true"
-                >
-        </field>
+
+		<field
+				name="occur_date"
+				type="text"
+				label=""
+				required="false"
+				size="0"
+				maxlength="10"
+                />
+
+		<field
+		
+				name="contents"
+				type="textarea"
+				label=""
+				rows="10"
+				cols="60"
+				/>
+		
+		<field
+				
+				name="event"
+				type="radio"
+				label=""
+				default="0"
+				class="select"
+				>
+				<option value="0">警告</option>
+				<option value="1">拒否</option>
+		</field>
+		
         <field
 				name="captcha"
 				type="captcha"
@@ -54,7 +131,7 @@
             <field
                     name="show_category"
                     type="list"
-                    label="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_LABEL"
+                    label="Display category or not?"
                     description="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_DESC"
                     default=""
                     useglobal="true"

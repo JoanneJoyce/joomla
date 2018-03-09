@@ -18,6 +18,36 @@ defined('_JEXEC') or die('Restricted access');
 class TroublesomePatientModelForm extends JModelAdmin
 {
 
+	protected $message;
+	/**
+	 * Get the message
+         *
+	 * @return  string  The message to be displayed to the user
+	 */
+	public function getMsg()
+	{
+		if (!isset($this->message))
+		{
+			$jinput = JFactory::getApplication()->input;
+			$id     = $jinput->get('id', 1, 'INT');
+		}
+		// Initialize variables.
+		$db    = JFactory::getDbo();
+		$query = $db->getQuery(true);
+
+		// Create the base select statement.
+		$query->select('*')
+			  ->from($db->quoteName('#__problem_patient'));
+
+		$db->setQuery($query);
+		$db->execute();
+		$row = $db->loadObjectList();
+
+		$this->message = $row;
+
+		return $this->message;
+	}
+	
 	/**
 	 * Method to get a table object, load it if necessary.
 	 *

@@ -30,6 +30,7 @@ class TroublesomePatientViewForm extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		$this->msg = $this->get('Msg');
 		// Get the form to display
 		$this->form = $this->get('Form');
 		// Get the javascript script file for client-side validation
@@ -66,7 +67,8 @@ class TroublesomePatientViewForm extends JViewLegacy
 	protected function setDocument() 
 	{
 		$document = JFactory::getDocument();
-		$document->setTitle(JText::_("HelloWorld - Creating"));
+		//$document->addStyleSheet('templates/medicalpartner/css/problem_patient_style.css');
+		$document->setTitle(JText::_("問題患者検索"));
 		// $document->addScript(JURI::root() . $this->script);
 		// $document->addScript(JURI::root() . "/administrator/components/com_helloworld"
 		//                                   . "/views/helloworld/submitbutton.js");

@@ -28,7 +28,7 @@ INPUT SELECT TEXTAREA{
     width: 10%;
 }
 
-#patient_id{
+#patient_id, #jform_patient_id{
     height:110px; 
     width:40%; 
     outline:0;
