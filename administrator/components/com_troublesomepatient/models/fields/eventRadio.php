@@ -22,15 +22,11 @@ class JFormFieldEventRadio extends JFormField {
         
         $element = '<div id="" >'.
         '<input id="'.$this->id.'" type="radio" name="'.$this->name.'" value="0" checked="">'.
-        '<label for="警告">警告</label>';
-
-        // foreach ($rows as $row) {
-		// 	$element = $element.'<option value="'.$row->pid.'" data-level="'.$row->event_level.'">'.
-		// 		$row->pid.' - '.$row->pname.
-		// 		'</option>';
-        // }
-
-		$element = $element.'</div>';
+        '<label for="警告">警告</label> </div>'.
+        '<div id="" >'.
+        '<input id="'.$this->id.'" type="radio" name="'.$this->name.'" value="1">'.
+        '<label for="拒否">拒否</label>'.
+        '</div>';
 
 		return $element;
 	}

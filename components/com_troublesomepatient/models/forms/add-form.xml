@@ -23,12 +23,6 @@
 			type="SelectPatient"
 			label=""
 			/>
-
-		<field
-			name="sample"
-			type="EventRadio"
-			label=""
-			/>
 		
         <field
 				name="patient_action"
@@ -108,16 +102,10 @@
 				/>
 		
 		<field
-				
-				name="event"
-				type="radio"
-				label=""
-				default="0"
-				class="select"
-				>
-				<option value="0">警告</option>
-				<option value="1">拒否</option>
-		</field>
+			name="event"
+			type="EventRadio"
+			label=""
+			/>
 		
         <field
 				name="captcha"

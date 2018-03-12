@@ -7,26 +7,11 @@ window.onload = function (){
     
         document.getElementById("jform_search_patient").addEventListener("keyup", filter.filterPatients);
         document.getElementById("jform_patient_id").addEventListener("change", function () { patientsList.selectPatient(this); });
-        var tempEventLevel = document.getElementsByName("jform[event]");
-        var eventLevel = tempEventLevel.length;
-
+        var eventLevel = document.getElementsByName("jform[event]");
         // Traverse through event level radio buttons
-        for (var i = 0; i < eventLevel; i++) {
-            var element = document.getElementById("jform_event" + i);
-            var label = document.querySelectorAll("label[for=jform_event" + i + "]")[0];
-            
-            element.remove();
-            label.remove();
-
-            var td = document.getElementById("eventTd");
-            var div = document.createElement("div");
-            div.id = "divID" + i;
-
-            div.appendChild(element)
-            div.appendChild(label)
-            td.appendChild(div);
+        for (var i = 0; i < eventLevel.length; i++) {
             eventSelector();
-            tempEventLevel[1].addEventListener("change", function () { eventSelector() });
+            eventLevel[i].addEventListener("change", function () { eventSelector() });
         }
         patientBorderOnLoad();
         filter.populatePatients();

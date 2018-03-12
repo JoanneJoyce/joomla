@@ -171,7 +171,5 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 	</table>
     <input type="hidden" name="task" value="problem_patients.insertUpdateUser" />
 	<?php echo JHtml::_('form.token'); ?>
-
-	<?php echo $this->form->renderField('sample'); ?>
 </form>
 
