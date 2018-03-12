@@ -24,7 +24,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 
 ?>
 
-<form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.actionUser&controller=problem_patients&id=patient_id');?>" method="get">
+<form name="search_troublesome_patient" id="search_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patient.actionUser&controller=problem_patient&id=jform_patient_id');?>" method="get">
     <table class="outer">
         <tbody>
             <tr>
@@ -42,15 +42,6 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
                 <td class="head">患者</td>
                 <td class="odd">
 					<?php echo $this->form->renderField('patient_id');  ?>
-                    <!-- <select size="5" name="patient_id" id="patient_id"> -->
-                   <?php 
-                    // for($i=0; $i<sizeof($this->msg); $i++){
-						// echo "<option value='" .$this->msg[$i]->pid ."' data-level='".$this->msg[$i]->event_level."'>" . $this->msg[$i]->pid . " - " . $this->msg[$i]->pname . "</option>"; 
-						// echo "<option ". $this->msg[0]->pname . "></option>"; 
-                    //     echo "</br>";
-                    // }
-                ?>
-                    <!-- </select> -->
                 </td>
 			</tr>
 			<tr valign="top" align="left">
@@ -68,12 +59,12 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
         </tbody>
 	</table>
 
-	<input type="hidden" name="task" value="problem_patients.actionUser" />
+	<input type="hidden" name="task" value="problem_patient.actionUser" />
 	<?php echo JHtml::_('form.token'); ?>
 
 </form>
 
-<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patients.insertUpdateUser&controller=problem_patients');?>" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();" class="form-validate">
+<form name="detail_troublesome_patient" id="detail_troublesome_patient" action="<?php echo JRoute::_('index.php?option=com_troublesomepatient&task=problem_patient.insertUpdateUser&controller=problem_patient&layout=edit');?>" method="post" onsubmit="return xoopsFormValidate_detail_troublesome_patient();" class="form-validate">
 	<table class="outer">
         <tbody>
             <tr>
@@ -87,7 +78,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 					:
 				</td>
 				<td class="even">
-					<?php echo $this->form->renderField('pid');  ?>
+					<?php echo $this->form->renderField('pid');   if(isset($this->items)){echo $this->items[0]->pid;}?>
 				</td>
 			</tr>
 			<tr valign="top" align="left">
@@ -115,10 +106,6 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 				</td>
 				<td class="odd">
 					<?php echo $this->form->renderField('bday');  ?>
-					<a href="#" onclick="return showCalendar('jform_bday');">
-						<img src="/joomla/images/calendar_btn.gif" width="33" height="20">
-					</a>
-					(日付をYYYY/MM/DD形式で入力)
 				</td>
 			</tr>
 			<tr valign="top" align="left">
@@ -137,10 +124,6 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 				</td>
 				<td class="odd">
 					<?php echo $this->form->renderField('occur_date');  ?>
-					<a href="#" onclick="return showCalendar('jform_occur_date');">
-						<img src="/joomla/images/calendar_btn.gif" width="33" height="20">
-					</a>
-					(日付をYYYY/MM/DD形式で入力)
 				</td>
 			</tr>
 			<tr valign="top" align="left">
@@ -157,7 +140,7 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 					<img src="/joomla/images/kome.png" />
 					:
 				</td>
-				<td class="odd" id="eventTd">
+				<td class="odd">
 					<?php echo $this->form->renderField('event');  ?>
 				</td>
 			</tr>
@@ -169,7 +152,8 @@ $document->addStyleSheet(JURI::base() . 'templates/'.$app->getTemplate().'/css/p
 			</tr>
     	</tbody>
 	</table>
-    <input type="hidden" name="task" value="problem_patients.insertUpdateUser" />
+	<input type="text" name="pid" id="pid" size="80" maxlength="10" value="<?php if(isset($this->items)){echo $this->items[0]->pid;} ?>">
+    <input type="hidden" name="task" value="problem_patient.insertUpdateUser" />
 	<?php echo JHtml::_('form.token'); ?>
 </form>
 

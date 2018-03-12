@@ -20,12 +20,17 @@ INPUT SELECT TEXTAREA{
     font-size: 13px;
 }
 
-#search_patient{
+#jform_search_patient, #search_patient{
     width: 30%;
 }
 
-#patient_action{
+#jform_patient_action, #patient_action{
     width: 10%;
+}
+
+#jform_bday, #jform_occur_date{
+    display: inline-block;
+    width: 20%;
 }
 
 #patient_id, #jform_patient_id{

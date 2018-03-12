@@ -68,14 +68,14 @@ class TroublesomePatientModelTroublesomePatient extends JModelItem
 	}
 
 	public function insert($getData){
-		$pid 		 = $getData->get('pid', '', 'int');
-		$pname 		 = $getData->get('pname', '', 'string');
-		$furigana 	 = $getData->get('furigana', '', 'string');
-		$bday 		 = strtotime($getData->get('bday', '', 'int'));
-		$sex 		 = $getData->get('sex', '', 'int');
-		$occur_date  = strtotime($getData->get('occur_date', '', 'int'));
-		$contents 	 = $getData->get('contents', '', 'string');
-		$event_level = $getData->get('event', '', 'int');
+		$pid 		 = $getData['pid'];
+		$pname 		 = $getData['pname'];
+		$furigana 	 = $getData['furigana'];
+		$bday 		 = strtotime($getData['bday']);
+		$sex 		 = $getData['sex'];
+		$occur_date  = strtotime($getData['occur_date']);
+		$contents 	 = $getData['contents'];
+		$event_level = $getData['event'];
 		$regist_date = time();		
 		$update_date = time();				
 

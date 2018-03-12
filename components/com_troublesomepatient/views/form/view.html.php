@@ -52,11 +52,20 @@ class TroublesomePatientViewForm extends JViewLegacy
 			throw new Exception(implode("\n", $errors), 500);
 		}
 
+		$layout = JRequest::getWord('layout', '');
+        $this->setLayout("edit");
+
 		// Call the parent display to display the layout file
 		parent::display($tpl);
 
 		// Set properties of the html document
 		$this->setDocument();
+	}
+
+	function viewUser($id){
+
+		$model = $this->getModel();
+		$this->items = $model->getData($id);
 	}
 
 	/**

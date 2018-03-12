@@ -11,14 +11,6 @@ class JFormFieldEventRadio extends JFormField {
 	// getLabel() left out
 
 	public function getInput() {
-
-        // $db = JFactory::getDbo();
-        // $query = $db->getQuery(true);
-        // $query->select('*')->from($db->quoteName('#__problem_patient'));
-
-        // $db->setQuery($query);
-		// $db->execute();
-        // $rows = $db->loadObjectList();
         
         $element = '<div id="" >'.
         '<input id="'.$this->id.'" type="radio" name="'.$this->name.'" value="0" checked="">'.

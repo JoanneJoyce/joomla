@@ -44,6 +44,7 @@
 				required="false"
 				size="80"
 				maxlength="10"
+				value=""
                 />
 
 		<field
@@ -65,13 +66,10 @@
                 />
 		
 		<field
-				name="bday"
-				type="text"
-				label=""
-				required="false"
-				size="0"
-				maxlength="10"
-                />
+			name="bday"
+			type="FormDate"
+			label=""
+			/>
 		
 		<field
 				name="sex"
@@ -82,15 +80,12 @@
 				<option value="0">男性</option>
 				<option value="1">女性</option>
 		</field>
-
+		
 		<field
-				name="occur_date"
-				type="text"
-				label=""
-				required="false"
-				size="0"
-				maxlength="10"
-                />
+			name="occur_date"
+			type="FormDate"
+			label=""
+			/>
 
 		<field
 		
